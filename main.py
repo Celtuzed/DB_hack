@@ -25,6 +25,6 @@ def create_commendation(schoolkid='Фролов Иван', subject_title='Муз
     ]
     child = Schoolkid.objects.get(full_name__contains=schoolkid)
     subject = Subject.objects.filter(title=subject_title, year_of_study=child.year_of_study).first()
-    lesson = Lesson.objects.filter(subject=subject, year_of_study=child.year_of_study, group_letter=child.group_letter).first()
+    lesson = Lesson.objects.filter(subject=subject, year_of_study=child.year_of_study, group_letter=child.group_letter).order_by('?').first()
     Commendation.objects.create(schoolkid=child, teacher=lesson.teacher, subject=lesson.subject, created=lesson.date, text=random.choice(commendation_text))
 
