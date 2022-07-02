@@ -5,7 +5,7 @@ def fix_marks(schoolkid='Фролов Иван'):
         child_bad_marks = marks.filter(points__lte=3)
         child_bad_marks.update(points=5)
     except Schoolkid.MultipleObjectsReturned:
-        print("При поиске человека было найдено несколько людей с таким именем")
+        print("При поиске человека было найдено несколько людей с таким именем.")
     except Schoolkid.DoesNotExist:
         print("Такого человека не было найдено в базе данных")
 
@@ -38,4 +38,4 @@ def create_commendation(schoolkid='Фролов Иван', subject_title='Муз
     except Schoolkid.DoesNotExist:
         print("Такого человека не было найдено в базе данных")
     except AttributeError:
-        print("Название введено введено не верно")
+        print("Название урока введено не верно")
